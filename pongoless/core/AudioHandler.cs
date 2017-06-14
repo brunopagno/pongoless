@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace pongoless.core {
-    public class AudioHandler {
+    public static class AudioHandler {
 
         // do audio stuff, eventually
 

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 
 namespace pongoless.core {
-    public class ImageHandler {
+    public static class ImageHandler {
 
         public static Texture2D CreateTexture(Color color, int width, int height) {
             var texture = new Texture2D(PongolessGame.Instance.GraphicsDevice, width, height, false, SurfaceFormat.Color);

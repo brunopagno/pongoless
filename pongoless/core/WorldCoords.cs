@@ -10,7 +10,10 @@ namespace pongoless.core {
         private static float _wRatio;
         private static float _hRatio;
 
-        public static float Scale;
+        private static int _originalScreenWidth;
+        private static int _originalScreenHeight;
+
+        public static Vector2 Scale;
 
         public static void Initialize() {
             _width = 100;
@@ -21,12 +24,18 @@ namespace pongoless.core {
             PongolessGame.Instance.Window.ClientSizeChanged += Window_ClientSizeChanged;
             PongolessGame.Instance.Window.AllowUserResizing = true;
 
-            
+            _originalScreenWidth = PongolessGame.Instance.Window.ClientBounds.Width;
+            _originalScreenHeight = PongolessGame.Instance.Window.ClientBounds.Height;
+
+            Scale = Vector2.One;
         }
 
         private static void UpdateScreenStuff() {
-            _wRatio = PongolessGame.Instance.Window.ClientBounds.Width / _width;
-            _hRatio = PongolessGame.Instance.Window.ClientBounds.Height / _height;
+            var bounds = PongolessGame.Instance.Window.ClientBounds;
+            _wRatio = bounds.Width / _width;
+            _hRatio = bounds.Height / _height;
+
+            Scale = new Vector2((float)bounds.Width / _originalScreenWidth, (float)bounds.Height / _originalScreenHeight);
         }
 
         public static void WorldToScreen(Vector2 position, out Vector2 screenPosition) {

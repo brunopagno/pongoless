@@ -8,7 +8,7 @@ namespace pongoless.core {
 
         public static void Draw(Texture2D texture, Vector2 position, Color color) {
             WorldCoords.WorldToScreen(position, out _screenPosition);
-            PongolessGame.Instance.SpriteBatch.Draw(texture, _screenPosition, color);
+            PongolessGame.Instance.SpriteBatch.Draw(texture, _screenPosition, null, color, 0, Vector2.Zero, WorldCoords.Scale, SpriteEffects.None, 0);
         }
 
     }

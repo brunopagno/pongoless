@@ -46,8 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="core\AudioHandler.cs" />
+    <Compile Include="core\DrawHelper.cs" />
     <Compile Include="core\GameObject.cs" />
     <Compile Include="core\ImageHandler.cs" />
+    <Compile Include="core\WorldPosition.cs" />
     <Compile Include="PongolessGame.cs" />
     <Compile Include="game\BallThingy.cs" />
     <Compile Include="game\PadThingy.cs" />

@@ -38,6 +38,7 @@ namespace pongoless
         protected override void Initialize()
         {
             base.Initialize();
+            WorldCoords.Initialize();
 
             _round = new Round();
             _bgColor = new Color(0.1f, 0.1f, 0.1f);

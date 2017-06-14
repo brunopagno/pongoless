@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -16,7 +11,7 @@ namespace pongoless.game {
         public Round() {
             ball = new BallThingy();
             playerOne = new Player(Color.Coral, Keys.A, Keys.Z, 10);
-            playerTwo = new Player(Color.CadetBlue, Keys.Up, Keys.Down, 300);
+            playerTwo = new Player(Color.CadetBlue, Keys.Up, Keys.Down, 90);
         }
 
         internal void Draw(GameTime gameTime) {

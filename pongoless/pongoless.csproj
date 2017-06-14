@@ -49,6 +49,7 @@
     <Compile Include="core\DrawHelper.cs" />
     <Compile Include="core\GameObject.cs" />
     <Compile Include="core\ImageHandler.cs" />
+    <Compile Include="core\RandomHandler.cs" />
     <Compile Include="core\WorldCoords.cs" />
     <Compile Include="PongolessGame.cs" />
     <Compile Include="game\BallThingy.cs" />

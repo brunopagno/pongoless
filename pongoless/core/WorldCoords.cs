@@ -15,6 +15,11 @@ namespace pongoless.core {
 
         public static Vector2 Scale;
 
+        public static float RightLimit { get { return _width; } }
+        public static float LeftLimit { get { return 0; } }
+        public static float TopLimit { get { return _height; } }
+        public static float BotLimit { get { return 0; } }
+
         public static void Initialize() {
             _width = 100;
             _height = 100;

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 namespace pongoless.game {
     public class Player {
         private PadThingy _pad;
+        public PadThingy Pad {
+            get { return _pad; }
+        }
+
         private Keys _moveUp;
         private Keys _moveDown;
 

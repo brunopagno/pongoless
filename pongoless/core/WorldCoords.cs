@@ -13,12 +13,10 @@ namespace pongoless.core {
         private static int _originalScreenWidth;
         private static int _originalScreenHeight;
 
-        public static Vector2 Scale;
-
         public static float RightLimit { get { return _width; } }
         public static float LeftLimit { get { return 0; } }
-        public static float TopLimit { get { return _height; } }
-        public static float BotLimit { get { return 0; } }
+        public static float TopLimit { get { return 0; } }
+        public static float BotLimit { get { return _height; } }
 
         public static void Initialize() {
             _width = 100;
@@ -31,21 +29,19 @@ namespace pongoless.core {
 
             _originalScreenWidth = PongolessGame.Instance.Window.ClientBounds.Width;
             _originalScreenHeight = PongolessGame.Instance.Window.ClientBounds.Height;
-
-            Scale = Vector2.One;
         }
 
         private static void UpdateScreenStuff() {
             var bounds = PongolessGame.Instance.Window.ClientBounds;
             _wRatio = bounds.Width / _width;
             _hRatio = bounds.Height / _height;
-
-            Scale = new Vector2((float)bounds.Width / _originalScreenWidth, (float)bounds.Height / _originalScreenHeight);
         }
 
-        public static void WorldToScreen(Vector2 position, out Vector2 screenPosition) {
-            screenPosition.X = position.X * _wRatio;
-            screenPosition.Y = position.Y * _hRatio;
+        public static void WorldToScreen(Vector2 position, float width, float height, out Rectangle screenRect) {
+            screenRect.X = (int)(position.X * _wRatio);
+            screenRect.Y = (int)(position.Y * _hRatio);
+            screenRect.Width = (int)(width * _wRatio);
+            screenRect.Height = (int)(height * _hRatio);
         }
 
         private static void Window_ClientSizeChanged(object sender, EventArgs e) {

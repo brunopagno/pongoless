@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using pongoless.core;
 using pongoless.game;
 
 namespace pongoless
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
     public class PongolessGame : Game
     {
         private static PongolessGame _instance;
@@ -49,16 +45,8 @@ namespace pongoless
             SpriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
-        protected override void UnloadContent()
-        {
-        }
-
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) {
-                Exit();
-            }
-
             _round.Update(gameTime);
             base.Update(gameTime);
         }

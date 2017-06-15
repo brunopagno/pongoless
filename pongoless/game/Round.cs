@@ -8,8 +8,20 @@ namespace pongoless.game {
         private Player playerOne;
         private Player playerTwo;
 
+        public PadThingy PadOne {
+            get {
+                return playerOne.Pad;
+            }
+        }
+
+        public PadThingy PadTwo {
+            get {
+                return playerTwo.Pad;
+            }
+        }
+
         public Round() {
-            ball = new BallThingy();
+            ball = new BallThingy(this);
             playerOne = new Player(Color.Coral, Keys.A, Keys.Z, 10);
             playerTwo = new Player(Color.CadetBlue, Keys.Up, Keys.Down, 90);
         }
@@ -25,9 +37,9 @@ namespace pongoless.game {
         }
 
         internal void Update(GameTime gameTime) {
-            ball.Update(gameTime);
             playerOne.Update(gameTime);
             playerTwo.Update(gameTime);
+            ball.Update(gameTime);
         }
     }
 }

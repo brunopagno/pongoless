@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 namespace pongoless.core {
     public static class DrawHelper {
 
-        private static Vector2 _screenPosition;
+        private static Rectangle _screenRect;
 
-        public static void Draw(Texture2D texture, Vector2 position, Color color) {
-            WorldCoords.WorldToScreen(position, out _screenPosition);
-            PongolessGame.Instance.SpriteBatch.Draw(texture, _screenPosition, null, color, 0, Vector2.Zero, WorldCoords.Scale, SpriteEffects.None, 0);
+        public static void Draw(Texture2D texture, Vector2 position, float width, float height, Color color) {
+            WorldCoords.WorldToScreen(position, width, height, out _screenRect);
+            PongolessGame.Instance.SpriteBatch.Draw(texture, _screenRect, color);
         }
 
     }

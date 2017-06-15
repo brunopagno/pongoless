@@ -42,21 +42,25 @@ namespace pongoless.game {
             _position.Y += (float)(_direction.Y * _speed * gameTime.ElapsedGameTime.TotalSeconds);
             if (_position.X + _size > WorldCoords.RightLimit || _position.X < WorldCoords.LeftLimit) {
                 Reset();
+                AudioHandler.PlaySound(1);
             }
             if (_position.Y + _size > WorldCoords.BotLimit || _position.Y < WorldCoords.TopLimit) {
                 _direction.Y *= -1;
+                AudioHandler.PlaySound();
             }
 
             if (_round.PadOne.Position.X + _round.PadOne.Width > _position.X && _round.PadOne.Position.X < _position.X &&
                 (_round.PadOne.Position.Y < _position.Y && _round.PadOne.Position.Y + _round.PadOne.Height > _position.Y ||
                 _round.PadOne.Position.Y < _position.Y + _size && _round.PadOne.Position.Y + _round.PadOne.Height > _position.Y + _size)) {
                 _direction.X = Math.Abs(_direction.X);
+                AudioHandler.PlaySound();
             }
 
             if (_round.PadTwo.Position.X < _position.X + _size && _round.PadTwo.Position.X + _round.PadTwo.Width > _position.X + _size &&
                 (_round.PadTwo.Position.Y < _position.Y && _round.PadTwo.Position.Y + _round.PadTwo.Height > _position.Y ||
                 _round.PadTwo.Position.Y < _position.Y + _size && _round.PadTwo.Position.Y + _round.PadTwo.Height > _position.Y + _size)) {
                 _direction.X = -Math.Abs(_direction.X);
+                AudioHandler.PlaySound();
             }
         }
     }

@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework.Audio;
 
 namespace pongoless.core {
     public static class AudioHandler {
 
-        // do audio stuff, eventually
+        private static SoundEffect sound;
+
+        public static void Initialize() {
+            sound = PongolessGame.Instance.Content.Load<SoundEffect>("jhou");
+        }
+
+        public static void PlaySound(float pitch = 0) {
+            sound.Play(1, pitch, 1);
+        }
 
     }
 }

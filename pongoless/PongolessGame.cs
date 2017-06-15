@@ -43,6 +43,7 @@ namespace pongoless
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
+            AudioHandler.Initialize();
         }
 
         protected override void Update(GameTime gameTime)
